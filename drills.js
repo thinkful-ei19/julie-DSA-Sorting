@@ -165,7 +165,7 @@ function bucket2(array, min, max) {
 }
 
 
-console.log(bucket2(arraay, 4, 86))
+// console.log(bucket2(arraay, 4, 86))
 
 
 
@@ -180,8 +180,35 @@ function sortInPlace(array) {
   }
 // console.log(sortInPlace(arr))
 
+// const library = [ 'Python', 'Javascript', 'PHP', 'C++'];
 
-function sortingBooks(array) {
 
-}
+// function sortingBooks(array, start=0, end=array.length) {
+//     start = start;
+//     end = end;
+//     if (start >= end) {
+//         return array;
+//     }
+//     const middle = partitioning(array, start, end);
+//     array = quickSort(array, start, middle);
+//     array = quickSort(array, middle + 1, end);
+//     return array;
+// };
+
+// function partitioning(array, start, end) {
+//     const pivot = array[end - 1];
+//     let j = start;
+//     for (let i=start; i<end - 1; i++) {
+//         if (array[i] <= pivot) {
+//             swap(array, i, j);
+//             j++;
+//         }
+//     }
+//     swap(array, end-1, j);
+//     return j;
+// };
+
+// console.log(sortingBooks(library, 'C++', 'PHP'))
+//I would use the quick sort method accordingly to the title's first character
+//then compare when they're partitioned. 
 
