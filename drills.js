@@ -114,16 +114,11 @@ function insertionSort(array) {
     return array;
 }
 
-function bucketSort(array, bucketSize) {
-    if (array.length === 0) {
-      return array;
-    }
-}
 
 function bucket(array, min, max) {
 
     let bucketCount = Math.floor((max-min)+1);
-    let allBuckets = new Array((bucketCount))
+    let allBuckets = new Array((bucketCount));
     let bucketSize = array.length;
 
     //initiale buckets
@@ -148,13 +143,45 @@ function bucket(array, min, max) {
 
     return array;
 
-
     // let divider = ceil((max+1)/bucket)
     // bucket[j] = array[i];
     // j = floor(array[i]/divider)
+}
+
+const arraay = [5, 4, 7, 2, 9, 11, 46, 86, 45, 32]
+function bucket2(array, min, max) {
+    let bucketCount = Math.floor((max-min)+1);
+    let allBuckets = new Array((bucketCount));
+
+    for(let i = 0; i < array.length; i++) {
+        allBuckets[array[i] - min] = array[i];
+    }
+
+    let mrBucket = [];
+    allBuckets.forEach(num => { 
+        mrBucket.push(num)
+    })
+    return mrBucket;
+}
 
 
+console.log(bucket2(arraay, 4, 86))
+
+
+
+function sortInPlace(array) {
+    for (let i = 0; i < array.length; i++) {
+      let newNew = Math.floor(Math.random() * array.length);
+      swap(array, i, newNew);
+    }
+  
+    return array;
+  
+  }
+// console.log(sortInPlace(arr))
+
+
+function sortingBooks(array) {
 
 }
 
-console.log(bucket(arr, 8, 45));
