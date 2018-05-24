@@ -43,7 +43,7 @@ function partition(array, start, end) {
 }
 
 // console.log(qSort(dataSet, start=0, end=dataSet.length));
-console.log(qSort(dataSet));
+// console.log(qSort(dataSet));
 
 
 function mSort(array) {
@@ -94,3 +94,20 @@ function merge(left, right, array) {
 };
 
 // console.log('merge counter: ', mSort(dataSet));
+
+//write O(n) algo to sort an array of integers where you know in advanced
+//lowest and highest values
+
+const arr = [22, 45, 12, 8]
+
+function bucket(array, min, max) {
+
+    let N = array.length-1;
+    let bucket = new Array((max-min)+1);
+    let divider = ceil((max+1)/bucket)
+    bucket[j] = array[i];
+    j = floor(array[i]/divider)
+
+
+
+}
