@@ -100,14 +100,61 @@ function merge(left, right, array) {
 
 const arr = [22, 45, 12, 8]
 
+
+function insertionSort(array) {
+    let length = array.length;
+
+    for(let i = 1; i < length; i++) {
+        let temp = array[i];
+        for(let j = i - 1; j >= 0 && array[j] > temp; j--) {
+            array[j+1] = array[j];
+        }
+        array[j+1] = temp;
+    }
+    return array;
+}
+
+function bucketSort(array, bucketSize) {
+    if (array.length === 0) {
+      return array;
+    }
+}
+
 function bucket(array, min, max) {
 
-    let N = array.length-1;
-    let bucket = new Array((max-min)+1);
-    let divider = ceil((max+1)/bucket)
-    bucket[j] = array[i];
-    j = floor(array[i]/divider)
+    let bucketCount = Math.floor((max-min)+1);
+    let allBuckets = new Array((bucketCount))
+    let bucketSize = array.length;
+
+    //initiale buckets
+    for (i = 0; i < allBuckets.length; i++) {
+        allBuckets[i] = [];
+    }
+
+    //push values into bucket
+    array.forEach(function(currentVal) {
+        allBuckets[Math.floor((currentVal-min)/bucketSize)].push(currentVal)
+    });
+
+    //sort buckets
+    array.length = 0;
+
+    allBuckets.forEach(function(bucket) {
+        insertionSort(bucket);
+        bucket.forEach(function(element) {
+            array.push(element)
+        })
+    })
+
+    return array;
+
+
+    // let divider = ceil((max+1)/bucket)
+    // bucket[j] = array[i];
+    // j = floor(array[i]/divider)
 
 
 
 }
+
+console.log(bucket(arr, 8, 45));
