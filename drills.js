@@ -5,33 +5,34 @@ const dataSet = [89, 30, 25, 32, 72, 70, 51, 42, 25, 24, 53, 55, 78, 50, 13,
     1, 6, 7, 64, 43, 9, 73, 80, 98, 46, 27, 22, 87, 49, 83, 6, 39, 42, 51, 54, 84, 
     34, 53, 78, 40, 14, 5]
 
-let sortCounter = 0;
+let quickSortCounter = 0;
 
 function swap(array, i, j) {
-    sortCounter++;
+    // quickSortCounter++;
     const tmp = array[i];
     array[i] = array[j];
     array[j] = tmp;
 };
 
 function qSort(array, start=0, end=array.length) {
+    quickSortCounter++;
     start = start;
     end = end;
     if (start >= end) {
         return array;
     }
-    sortCounter++;
+   
     const middle = partition(array, start, end);
     array = qSort(array, start, middle);
     array = qSort(array, middle + 1, end);
-    return sortCounter;
+    return quickSortCounter;
 }
  
 function partition(array, start, end) {
     const pivot = array[end - 1];
     let j = start;
     for (let i=start; i<end - 1; i++) {
-        sortCounter++;
+        // quickSortCounter++;
         if (array[i] <= pivot) {
             swap(array, i, j);
             j++;
